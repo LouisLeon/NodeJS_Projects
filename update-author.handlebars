@@ -1,0 +1,25 @@
+<h1>Update {{singlebook.title}} {{singlebook.pubDate}}:</h1>
+
+<form id="update-book" action="/library" method="post">
+    Book Title: <input type="text" name="singlebooktitle" value="{{singlebook.title}}"><br>
+    Publish Date: <input type="date" name="singlebookpubDate" value="{{singlebook.pubDate}}"><br>
+    Publisher Name: <select name="publishername" id="publisher-selector"> 
+        {{#each publisher}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+   Author Name: <select name="authorname" id="author-selector"> 
+        {{#each author}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Genre: <select name="genre" id="genre-selector"> 
+        {{#each genre}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+
+</form>
+<button onclick="updateBook({{singlebook.id}})">Update</button>
+<script defer>selectAuthor({{singlebook.authorid}});</script> 
+

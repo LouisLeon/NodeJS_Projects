@@ -1,0 +1,35 @@
+<h1>Loaned books for {{singleuser.name}}</h1>
+
+<script defer>selectAuthor({{singleuser.authorid}});</script> 
+<table> 
+    <form id="loan-book" action="/user/{{singleuser.id}}" method="post">
+        <h3>Loan book</h3>
+        
+        Book Title: <select name="title" id="title-selector"><br> 
+            {{#each book}}
+            <option value="{{id}}">{{title}}</option>
+            {{/each}}
+    </form>
+<table>
+
+<button onclick="updateLoan({{singleuser.id}})">Loan Book</button>
+
+<table>
+    
+    <thead> 
+        <th>Title</th> 
+        <th>Date Loaned</th> 
+        <th>Date Due</th>
+    </thead> 
+    
+    <tbody> 
+        {{#each loans}} 
+        <tr> 
+            <td>{{title}}</td> 
+            <td>{{loanedDate}}</td> 
+            <td>{{dueDate}}</td>
+            <td><button onclick="deleteLoan({{id}})">Return Book</button></td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+</table>

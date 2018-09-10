@@ -1,0 +1,31 @@
+<table>
+    <thead>
+    <th><a href="/library">Books</a></th>
+    <th><a href="/publisher">Publishers</a></th>
+    <th><a href="/author">Authors</a></th>
+    <th><a href="/genre">Genres</a></th>
+    <th><a href="/user">Users</a></th>
+    </thead>
+</table>
+
+<h1>List of Publishers:</h1>
+<h2>Add Publisher</h2>
+
+<table>
+    <thead> 
+        <th>Publisher Name</th> 
+    </thead> 
+
+    <tbody> 
+        {{#each publisher}} 
+        <tr> 
+            <td>{{name}}</td>
+        </tr> 
+        {{/each}} 
+    </tbody> 
+
+    <form id="addpublisher" action="/publisher" method="post">
+    Publisher Name: <input type="text" name="publishername"><br>
+    <input type="submit" value="Submit">
+    </form>
+</table> 

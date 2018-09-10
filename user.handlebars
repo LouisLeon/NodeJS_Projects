@@ -1,0 +1,35 @@
+<table>
+    <thead>
+    <th><a href="/library">Books</a></th>
+    <th><a href="/publisher">Publishers</a></th>
+    <th><a href="/author">Authors</a></th>
+    <th><a href="/genre">Genres</a></th>
+    <th><a href="/user">Users</a></th>
+    </thead>
+</table>
+
+<h1>Current Users:</h1>
+<h2>Add a user</h2>
+
+<table>
+    <thead> 
+        <th>Full Name</th> 
+        <th>Date of Birth</th> 
+    </thead> 
+
+    <tbody> 
+        {{#each user}} 
+        <tr> 
+            <td>{{name}}</td>
+            <td>{{dob}}</td> 
+            <td><a href="/user/{{id}}">View loaned books</a></td> 
+        </tr> 
+        {{/each}} 
+    </tbody> 
+
+    <form id="adduser" action="/user" method="post">
+    Name: <input type="text" name="username"><br>
+    Date of Birth: <input type="date" name="userdob"><br>
+    <input type="submit" value="Submit">
+    </form>
+</table> 

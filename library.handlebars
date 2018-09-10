@@ -1,0 +1,66 @@
+<table>
+    <thead>
+    <th><a href="/library">Books</a></th>
+    <th><a href="/publisher">Publishers</a></th>
+    <th><a href="/author">Authors</a></th>
+    <th><a href="/genre">Genres</a></th>
+    <th><a href="/user">Users</a></th>
+    </thead>
+</table>
+
+<h1>Current Books:</h1>
+
+<h3>Search for Books</h3>
+<form id="searchbook" action="/library/search" method="get">
+	<input type="text" name="search">
+	<input type="submit" value="Search">
+</form>
+
+<br>
+
+<table>
+    <thead> 
+        <th>Title</th> 
+        <th>Date Published</th> 
+        <th>Publisher</th>
+        <th>Author</th>
+        <th>Genre</th>
+    </thead> 
+
+    <tbody> 
+        {{#each book}} 
+        <tr> 
+            <td>{{title}}</td> 
+            <td>{{pubDate}}</td>
+            <td>{{publishername}}</td>
+            <td>{{name}}</td>
+            <td>{{genrename}}</td>
+            <td><button onclick="deleteBook({{id}})">Delete</button></td>
+            <td><a href="/library/{{id}}">Update</a></td> 
+        </tr> 
+        {{/each}} 
+    </tbody> 
+
+    <form id="addbook" action="/library" method="post">
+    <h3>Add a book</h3>
+    Book Title: <input type="text" name="title"><br>
+    Publisher Name: <select name="publishername"> 
+        {{#each publisher}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Author Name: <select name="authorname"> 
+        {{#each author}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Genre: <select name="genre"> 
+        {{#each genre}}
+        <option value="{{id}}">{{name}}</option>
+        {{/each}}
+    </select><br>
+    Publish Date: <input type="date" name="pubDate"><br>
+
+    <input type="submit" value="Submit">
+    </form>
+</table> 
